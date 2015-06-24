@@ -9,7 +9,9 @@ from aws import Security
 connInst = Connection()
 conn = connInst.ec2Connection()
 
-
+'''
+Uncomment code as required. Replace instance_id with actual values
+'''
 #Manage EC2 Instances
 '''
 instance = EC2Instance()
@@ -18,6 +20,9 @@ instance.start_instance(conn, instance_id)
 instance.stop_instance(conn, instance_id)
 '''
 
+'''
+Uncomment code as required. Replace instance_id and volume_id with actual values
+'''
 #Manage EBS Volumes
 '''
 volumeInst = Volumes()
@@ -27,8 +32,13 @@ volumeInst.attach_volume(conn, volume_id, instance_id)
 '''
 
 #Manage Security Groups
+'''
+Uncomment code as required. Replace security_group_name, rule_type, ip_address with actual values
+'''
+'''
 sgInst = Security()
-#sgInst.list_security_groups(conn)
-#sgInst.add_security_group(conn)
-#sgInst.revoke_security_rule(conn,'RAP-DB-SG','oracle','68.255.14.150/32')
-sgInst.remove_security_group(conn,'RAP-DB-SG')
+sgInst.list_security_groups(conn)
+sgInst.add_security_group(conn)
+sgInst.revoke_security_rule(conn,security_group_name,rule_type,ip_address)
+sgInst.remove_security_group(conn,security_group_name)
+'''
